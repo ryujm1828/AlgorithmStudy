@@ -1,8 +1,7 @@
 #include <stdio.h>
-long one[150000];
-long two[150000];
-long thr[150000];
-
+long one[100001];
+long two[100001];
+long thr[100001];
 int main(){
 
 	one[1] = 1;
@@ -16,6 +15,7 @@ int main(){
 	one[3] = 1;
 	two[3] = 1;
 	thr[3] = 1;
+	
 	for(int i=4; i<=100000; i++){
 		one[i] = (thr[i-1] + two[i-1])%1000000009;
 		two[i] = (one[i-2] + thr[i-2])%1000000009;
