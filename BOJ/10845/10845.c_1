@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <string.h>
+int fr = 0;
+int en = 0;
+int que[10001] = { 0 };
+
+void push(int num) {
+	que[en] = num;
+	en += 1;
+}
+
+void pop() {
+	if (en == fr)
+		printf("-1\n");
+	else {
+		printf("%d\n", que[fr]);
+		fr += 1;
+	}
+}
+
+void size() {
+	printf("%d\n", en-fr);
+}
+
+void empty() {
+	if (en == fr) {
+		printf("1\n");
+	}
+	else
+		printf("0\n");
+}
+
+void front() {
+	if (en == fr)
+		printf("-1\n");
+	else
+		printf("%d\n", que[fr]);
+}
+
+void back() {
+	if (en == fr)
+		printf("-1\n");
+	else
+		printf("%d\n", que[en - 1]);
+}
+
+int main()
+{
+	int n;
+	char com[10];
+	scanf("%d", &n);
+
+	int k;
+
+	for (int i = 1; i <= n; i++) {
+		scanf("%s", com);
+
+		if (!strcmp(com, "push")) {
+			scanf("%d", &k);
+			push(k);
+		}
+
+		else if (!strcmp(com, "pop")) {
+			pop();
+		}
+
+		else if (!strcmp(com, "size"))
+			size();
+
+		else if (!strcmp(com, "empty")) {
+			empty();
+		}
+
+		else if (!strcmp(com, "front")) {
+			front();
+		}
+
+		else if (!strcmp(com, "back")) {
+			back();
+		}
+	}
+}
