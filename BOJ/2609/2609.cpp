@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int GCD(int a, int b){
+int GCD(int a, int b){				//유클리드 호제법 GCD(a,b) = GCD(b,a%b) .... GCD(x,0) = x
 	if(a<b){
 		int temp = a;
 		a = b;
@@ -22,7 +22,7 @@ int main(){
 	scanf("%d",&num2);
     
 	int gcd = GCD(num1,num2);
-	int lcm = gcd*(num1/gcd)*(num2/gcd);
+	int lcm = gcd*(num1/gcd)*(num2/gcd);			//최대공배수를 구하는 공식
 	
 	printf("%d\n%d",gcd,lcm);
 }
