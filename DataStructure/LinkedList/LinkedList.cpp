@@ -19,7 +19,7 @@ void init_list(list* l){
 	l->rear = NULL;
 }
 
-int* get(list* l,int num){
+int* get(list* l,int num){	//리스트의 num번째 노드값 
 	int error = 0;
 	element d = 0;
 	int arr[2];
@@ -43,7 +43,7 @@ int* get(list* l,int num){
 	return arr;
 }
 
-void add_front(list* l,int num){
+void add_front(list* l,int num){		//리스트 맨 앞에 노드 추가
 	node* newnode = (node *)malloc(sizeof(node *));
 	newnode->data = num;
 	newnode->p1 = NULL;
@@ -58,7 +58,7 @@ void add_front(list* l,int num){
 	}
 }
 
-void add_rear(list* l,int num){
+void add_rear(list* l,int num){				//리스트 맨 뒤에 노드 추가
 	node* newnode = (node *)malloc(sizeof(node *));
 	newnode->data = num;
 	newnode->p2 = NULL;
@@ -73,25 +73,25 @@ void add_rear(list* l,int num){
 	}
 }
 
-void del_front(list* l){
-	node* del = l->front;
+void del_front(list* l){			//리스트 맨 앞 노드 삭제
 	if(l->front == NULL and l->rear == NULL)
 		return;
+	node* del = l->front;
 	l->front->p2->p1 = NULL;
 	l->front = l->front->p2;
 	free(del);
 }
 
 void del_rear(list* l){
-	node* del = l->rear;
 	if(l->front == NULL and l->rear == NULL)
 		return;
+	node* del = l->rear;
 	l->rear->p1->p2 = NULL;
 	l->rear = l->rear->p1;
 	free(del);
 }
 
-void print_list(list* l){
+void print_list(list* l){			//리스트 출력
 	node* n = l->front;
 	if(n != NULL){
 		printf("%d",n->data);
@@ -107,7 +107,7 @@ void print_list(list* l){
 	printf("\n");
 }
 
-int get_size(list* l){
+int get_size(list* l){			//리스트 사이즈 리턴
 	if(l->front == NULL)
 		return 0;
 	int temp = 0;
