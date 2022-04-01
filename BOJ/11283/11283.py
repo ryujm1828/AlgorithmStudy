@@ -1,2 +1,1 @@
-a = input()
-print(chr(44031+int(a)))
+print(ord(input())-44031)
